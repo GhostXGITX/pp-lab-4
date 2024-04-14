@@ -10,7 +10,19 @@ public class Company {
         employees[3] = new Employee("Bob Brown", 52000);
         employees[4] = new Worker("Emma Wilson", 58000,"Team Leader");
 
-       
+        int nonManagerEmployeesCount=0;
+        for(Employee employee : employees) {
+            if(!(employee instanceof Manager)) {
+                nonManagerEmployeesCount++;
+            }
+        }
+
+        if (employees[0] instanceof Manager) {
+            ((Manager) employees[0]).setNumberOfSubordinates(nonManagerEmployeesCount);
+        }
+
+        employees[0].setSalary(7500);
+
         System.out.println("Dane dla pracownika o indeksie 3:");
         System.out.println(employees[3]);
 
